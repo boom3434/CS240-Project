@@ -41,7 +41,7 @@ public class Hero extends Creature {
 		int arSize = 20;
 		ar.width = arSize;
 		ar.height = arSize;
-
+		//attacks to the right
 		if (handler.getKeyManager().attack) {
 			ar.x = cb.x + cb.width;
 			ar.y = cb.y + cb.height / 2 - arSize / 2;
@@ -82,7 +82,7 @@ public class Hero extends Creature {
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		g.drawImage(Assets.hero, (int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.assetMap.get("hero"), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getxOffset()), width, height, null);
 
 	}

@@ -4,7 +4,7 @@ public class enemy0 extends Creature {
 	public enemy0(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
 		bounds.x = 0;
-		bounds.y = (int) (height / 1.5f);
+		bounds.y = 0;
 		bounds.width = width;
 		bounds.height = height;
 	}
@@ -22,15 +22,15 @@ public class enemy0 extends Creature {
 		xMove = 0;
 		yMove = 0;
 		
-			yMove = speed;
-		if (this.checkEntityCollisions(0f, 0f))
 			yMove = -speed;
+		if (this.checkEntityCollisions(0, 10))
+			yMove = speed;
 		
 	}
 
 
 	public void render(Graphics g) {
-		g.drawImage(Assets.enemy0, (int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.assetMap.get("enemy0"), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
 

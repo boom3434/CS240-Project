@@ -71,7 +71,7 @@ public class Game implements Runnable {
 		State.setState(menuState);
 	}
 
-	// helps game run well. don't touch
+	// helps game run well.
 	private void tick() {
 		keyManager.tick();
 		if (State.getState() != null) {
@@ -92,7 +92,6 @@ public class Game implements Runnable {
 		// Clear screen
 		g.clearRect(0, 0, width, height);
 		// Draw here
-
 		if (State.getState() != null) {
 			State.getState().render(g);
 		}
