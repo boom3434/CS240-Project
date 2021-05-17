@@ -22,15 +22,15 @@ public class enemy0 extends Creature {
 		xMove = 0;
 		yMove = 0;
 		
-			yMove = speed;
-		if (this.checkEntityCollisions(0f, 0f))
 			yMove = -speed;
+		if (this.checkEntityCollisions(0f, 0f))
+			yMove = speed;
 		
 	}
 
 
 	public void render(Graphics g) {
-		g.drawImage(Assets.enemy0, (int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.assetMap.get("enemy0"), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
 

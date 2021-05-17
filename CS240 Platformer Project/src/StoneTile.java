@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 public class StoneTile extends Tile{
 
 	public StoneTile(int id) {
-		super(Assets.stone, id);
+		super(Assets.assetMap.get("stone"), id);
 		// TODO Auto-generated constructor stub
 	}
 	

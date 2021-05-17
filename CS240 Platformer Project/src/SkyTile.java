@@ -6,7 +6,7 @@
 public class SkyTile extends Tile {
 
 	public SkyTile(int id) {
-		super(Assets.sky, id);
+		super(Assets.assetMap.get("sky"), id);
 
 		// TODO Auto-generated constructor stub
 	}

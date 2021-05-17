@@ -82,7 +82,7 @@ public class Hero extends Creature {
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		g.drawImage(Assets.hero, (int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.assetMap.get("hero"), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getxOffset()), width, height, null);
 
 	}

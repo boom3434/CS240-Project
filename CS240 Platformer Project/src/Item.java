@@ -5,8 +5,8 @@ public class Item {
 
 	// Handler
 	public static Item[] items = new Item[2];
-	public static Item speedItem = new Item(Assets.powerUp0, "Speed", 0);
-	public static Item powerImage = new Item(Assets.powerUp1, "Power", 1);
+	public static Item speedItem = new Item(Assets.assetMap.get("powerUp0"), "Speed", 0);
+	public static Item powerImage = new Item(Assets.assetMap.get("powerUp1"), "Power", 1);
 	// Class
 	public static final int ITEMWIDTH = 16, ITEMHEIGHT = 32, PICKED_UP = -1;
 	protected Handler handler;

@@ -24,7 +24,7 @@ public class House extends StaticEntity {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(Assets.house, (int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.assetMap.get("house"), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
 

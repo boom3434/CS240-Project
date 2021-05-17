@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 public class DirtTile extends Tile {
 
 	public DirtTile(int id) {
-		super(Assets.dirt, id);
+		super(Assets.assetMap.get("dirt"), id);
 		// TODO Auto-generated constructor stub
 	}
 
