@@ -67,6 +67,8 @@ public abstract class Entity {
 		return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width,
 				bounds.height);
 	}
+	
+	//GETTERS AND SETTERS
 
 	public float getX() {
 		return x;

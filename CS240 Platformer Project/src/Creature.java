@@ -18,9 +18,9 @@ public abstract class Creature extends Entity {
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	//checks for collisions
 	public void move() {
 		if(!checkEntityCollisions(xMove, 0f))
 			moveX();
@@ -28,7 +28,7 @@ public abstract class Creature extends Entity {
 			moveY();
 
 	}
-	//checks for collisions
+	
 	public void moveX() {
 		if (xMove > 0) {
 			// Moving right
@@ -52,10 +52,10 @@ public abstract class Creature extends Entity {
 			}
 		}
 	}
-	//checks for collisions
+	
 	public void moveY() {
 		if (yMove < 0) {
-			// Up
+			// Moving Up
 			int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
 
 			if (!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
@@ -65,7 +65,7 @@ public abstract class Creature extends Entity {
 				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
 			}
 		} else if (yMove > 0) {
-			// down
+			//Moving down
 			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 
 			if (!collisionWithTile((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
