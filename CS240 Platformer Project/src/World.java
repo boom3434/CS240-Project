@@ -21,9 +21,13 @@ public class World {
 	private EntityManager entityManager;
 
 	public World(Handler handler, String path) {
+		
+		
 		int entityCount = 0;
 		this.handler = handler;
+		
 		entityManager = new EntityManager(handler, new Hero(handler, 200, 200));
+		
 		entityManager.addEntity(new enemy0(handler, 400, 300, 50, 50));
 		entityManager.addEntity(new enemy0(handler,500,350,50,50));
 		loadWorld(path);

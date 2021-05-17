@@ -12,9 +12,9 @@ public class Assets {
 
 	private static BufferedImage hero, enemy0, enemy1, enemy2, powerUp0, health, powerUp1, grass, stone, house, sand,
 			lava0, lava1, lava2, dirt, sky, START, SETTINGS, LEVELS, QUIT, START1, SETTINGS1, LEVELS1, QUIT1;
-	
-	static HashMap<String, BufferedImage> assetMap = new HashMap<String, BufferedImage> ();
-	
+
+	static Map<String, BufferedImage> assetMap = new Map<String, BufferedImage>();
+
 	public static BufferedImage[] btn_start;
 	public static BufferedImage[] btn_settings;
 	public static BufferedImage[] btn_levels;
@@ -24,46 +24,46 @@ public class Assets {
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/spriteSheet.png"));
 
 		// row1
-		
+
 		hero = sheet.crop(3, 3, width, height);
-		assetMap.put("hero", hero);
+		assetMap.add("hero", hero);
 		enemy0 = sheet.crop(96, 3, width, height);
-		assetMap.put("enemy0", enemy0);
+		assetMap.add("enemy0", enemy0);
 		enemy1 = sheet.crop(190, 3, width, height);
-		assetMap.put("enemy1", enemy1);
+		assetMap.add("enemy1", enemy1);
 		enemy2 = sheet.crop(283, 3, width, height);
-		assetMap.put("enemy2", enemy2);
+		assetMap.add("enemy2", enemy2);
 		powerUp0 = sheet.crop(377, 3, width, height);
-		assetMap.put("powerUp0", powerUp0);
+		assetMap.add("powerUp0", powerUp0);
 		health = sheet.crop(470, 3, width, height);
-		assetMap.put("health", health);
+		assetMap.add("health", health);
 		powerUp1 = sheet.crop(565, 3, width, height);
-		assetMap.put("grass", grass);
+		assetMap.add("grass", grass);
 		grass = sheet.crop(659, 3, width, height);
 
 		// row2
 		stone = sheet.crop(3, 97, width, height);
-		assetMap.put("stone", stone);
+		assetMap.add("stone", stone);
 		house = sheet.crop(97, 97, width, height);
-		assetMap.put("house", house);
+		assetMap.add("house", house);
 		sand = sheet.crop(190, 97, width, height);
-		assetMap.put("sand", sand);
+		assetMap.add("sand", sand);
 		lava0 = sheet.crop(283, 97, width, height);
-		assetMap.put("lava0", lava0);
+		assetMap.add("lava0", lava0);
 		lava1 = sheet.crop(378, 97, width, height);
-		assetMap.put("lava1", lava1);
+		assetMap.add("lava1", lava1);
 		dirt = sheet.crop(470, 97, width, height);
-		assetMap.put("dirt", dirt);
+		assetMap.add("dirt", dirt);
 		lava2 = sheet.crop(565, 97, width, height);
-		assetMap.put("lava2", lava2);
+		assetMap.add("lava2", lava2);
 		START = sheet.crop(660, 97, width, height);
 
 		// row3
 		SETTINGS = sheet.crop(0, 190, width, height);
 		LEVELS = sheet.crop(97, 190, width, height);
 		QUIT = sheet.crop(190, 190, width, height);
-		sky = sheet.crop(285, 190, width-1, height-1);
-		assetMap.put("sky", sky);
+		sky = sheet.crop(285, 190, width - 1, height - 1);
+		assetMap.add("sky", sky);
 		START1 = sheet.crop(378, 190, width, height);
 		SETTINGS1 = sheet.crop(472, 190, width, height);
 		LEVELS1 = sheet.crop(565, 190, width, height);
