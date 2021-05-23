@@ -16,8 +16,8 @@ public class Hero extends Creature {
 
 		bounds.x = 0;
 		bounds.y = 0;
-		bounds.width = 44;
-		bounds.height = 44;
+		bounds.width = 50;
+		bounds.height = 50;
 		// TODO Auto-generated constructor stub
 	}
 
