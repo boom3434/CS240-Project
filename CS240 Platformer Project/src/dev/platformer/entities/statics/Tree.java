@@ -1,35 +1,30 @@
-package platformer.entities.statics;
+//Finn Parker
+//CS240 - Project (Platformer)
+//Ryan Parsons
+//Defines the static entity house
 
 import java.awt.Graphics;
 
-import platformer.Handler;
-import platformer.gfx.Assets;
-import platformer.tiles.Tile;
+public class House extends StaticEntity {
 
-public class Tree extends StaticEntity {
-
-	public Tree(Handler handler, float x, float y) {
+	public House(Handler handler, float x, float y) {
 		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT * 2);
-
+		// Bounding box
 		bounds.x = 10;
 		bounds.y = (int) (height / 1.5f);
 		bounds.width = width - 20;
 		bounds.height = (int) (height - height / 1.5f);
 	}
 
-	@Override
 	public void tick() {
-
+		
 	}
 
-	@Override
 	public void die() {
-
 	}
 
-	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.assetMap.get("tree"), (int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.assetMap.get("house"), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
 
