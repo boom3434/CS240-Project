@@ -14,7 +14,7 @@ import platformer.gfx.Assets;
 
 public class enemy1 extends Creature {
 
-	private int step;
+	private int step, moveTimer, moveSelect;
 	// Attack Timer
 	private long lastAttackTimer, attackCooldown = 1000, attackTimer = attackCooldown;
 	private Animation enemy0Attack, enemy0Still;
@@ -36,7 +36,8 @@ public class enemy1 extends Creature {
 		bounds.height = height;
 
 		step = 0;
-
+		moveTimer =0;
+		moveSelect = 0;
 		// Animations
 		enemy0Attack = new Animation(500, Assets.enemy0_down);
 		enemy0Still = new Animation(1000, Assets.enemy0_down);
@@ -49,6 +50,7 @@ public class enemy1 extends Creature {
 		move();
 		checkAttacks();
 		step++;
+		moveTimer++;
 	}
 
 	public void die() {
@@ -115,32 +117,31 @@ public class enemy1 extends Creature {
 	private void getInput() {
 		xMove = 0;
 		yMove = 0;
-		int moveSelect = 1;
-		if (step > 50)
+		if (moveTimer >= 10) {
 			moveSelect = getMovePattern();
-		// changed all speeds to 5.0f
+			moveTimer = 0;
+		}
 		int movementScale = 30;
 		if (moveSelect == 0) {
 			if (step < movementScale) {
-				yMove = 5.0f;
+				yMove = 10.0f;
 			} else if (step >= movementScale && step < movementScale * 2) {
 				yMove = 0;
 			} else if (step >= movementScale * 2 && step < movementScale * 3) {
-				xMove = 5.0f;
+				xMove = 10.0f;
 			} else if (step >= movementScale * 3 && step < movementScale * 4) {
 				xMove = 0;
 			} else if (step >= movementScale * 4 && step < movementScale * 5) {
-				yMove = -5.0f;
+				yMove = -10.0f;
 			} else if (step >= movementScale * 5 && step < movementScale * 6) {
 				yMove = 0;
 			} else if (step >= movementScale * 6 && step < movementScale * 7) {
-				xMove = -5.0f;
+				xMove = -10.0f;
 			} else if (step >= movementScale * 7 && step < movementScale * 8) {
 				xMove = 0;
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				moveSelect = getMovePattern();
 			}
 		} else if (moveSelect == 1) {
 			if (step < movementScale) {
@@ -162,7 +163,6 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				moveSelect = getMovePattern();
 			}
 		} else if (moveSelect == 2) {
 			if (step < movementScale) {
@@ -184,7 +184,7 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				moveSelect = getMovePattern();
+				
 			}
 		} else if (moveSelect == 3) {
 			if (step < movementScale) {
@@ -206,7 +206,7 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				moveSelect = getMovePattern();
+				
 			}
 		} else {
 			// TODO: make changes to this else statement to get different movement patterns
@@ -229,7 +229,7 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				moveSelect = getMovePattern();
+				
 			}
 		}
 
