@@ -17,7 +17,7 @@ public class enemy1 extends Creature {
 	private int step, moveTimer, moveSelect;
 	// Attack Timer
 	private long lastAttackTimer, attackCooldown = 1000, attackTimer = attackCooldown;
-	private Animation enemy0Attack, enemy0Still;
+	private Animation enemy1;
 
 	Rectangle cb = getCollisionBounds(0, 0);
 	Rectangle arU = new Rectangle();
@@ -36,16 +36,14 @@ public class enemy1 extends Creature {
 		bounds.height = height;
 
 		step = 0;
-		moveTimer =0;
+		moveTimer = 0;
 		moveSelect = 0;
 		// Animations
-		enemy0Attack = new Animation(500, Assets.enemy0_down);
-		enemy0Still = new Animation(1000, Assets.enemy0_down);
+		enemy1 = new Animation(500, Assets.enemy1);
 	}
 
 	public void tick() {
-		enemy0Attack.tick();
-		enemy0Still.tick();
+		enemy1.tick();
 		getInput();
 		move();
 		checkAttacks();
@@ -184,7 +182,7 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				
+
 			}
 		} else if (moveSelect == 3) {
 			if (step < movementScale) {
@@ -206,7 +204,7 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				
+
 			}
 		} else {
 			// TODO: make changes to this else statement to get different movement patterns
@@ -229,7 +227,7 @@ public class enemy1 extends Creature {
 			}
 			if (step == movementScale * 8) {
 				step = 0;
-				
+
 			}
 		}
 
@@ -255,7 +253,7 @@ public class enemy1 extends Creature {
 
 	private BufferedImage getCurrentAnimationFrame() {
 
-		return enemy0Still.getCurrentFrame();
+		return enemy1.getCurrentFrame();
 	}
 
 }

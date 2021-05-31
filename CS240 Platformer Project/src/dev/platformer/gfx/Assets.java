@@ -11,6 +11,7 @@ public class Assets {
 	public static BufferedImage dirt, grass, stone, tree, rock;
 	public static BufferedImage[] player_down, player_up, player_left, player_right;
 	public static BufferedImage[] enemy0_down, enemy0_up, enemy0_left, enemy0_right;
+	public static BufferedImage[] enemy1;
 	public static BufferedImage[] btn_start;
 
 	public static void init() {
@@ -58,6 +59,10 @@ public class Assets {
 		assetMap.add("tree", tree);
 		rock = sheet.crop(0, height * 2, width, height);
 		assetMap.add("rock", rock);
+		
+		enemy1 = new BufferedImage[2];
+		enemy1[0] = sheet.crop(width, height, width, height);
+		enemy1[1] = sheet.crop(width*2, height, width, height);
 	}
 
 }
