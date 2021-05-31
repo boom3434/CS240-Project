@@ -8,7 +8,7 @@ public class Assets {
 
 	public static Map<String, BufferedImage> assetMap = new Map<String, BufferedImage>();
 
-	public static BufferedImage dirt, grass, stone, tree, rock;
+	public static BufferedImage dirt, grass, stone, tree, rock, winFlag;
 	public static BufferedImage[] player_down, player_up, player_left, player_right;
 	public static BufferedImage[] enemy0_down, enemy0_up, enemy0_left, enemy0_right;
 	public static BufferedImage[] enemy1;
@@ -59,10 +59,12 @@ public class Assets {
 		assetMap.add("tree", tree);
 		rock = sheet.crop(0, height * 2, width, height);
 		assetMap.add("rock", rock);
-		
+		winFlag = sheet.crop(width * 3, height, width, height);
+		assetMap.add("winFlag", winFlag);
+
 		enemy1 = new BufferedImage[2];
 		enemy1[0] = sheet.crop(width, height, width, height);
-		enemy1[1] = sheet.crop(width*2, height, width, height);
+		enemy1[1] = sheet.crop(width * 2, height, width, height);
 	}
 
 }

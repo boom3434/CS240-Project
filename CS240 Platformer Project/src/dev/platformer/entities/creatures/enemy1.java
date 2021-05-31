@@ -100,7 +100,7 @@ public class enemy1 extends Creature {
 			}
 			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
 					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))
-					&& attackTimer > attackCooldown) {
+					/*&& attackTimer > attackCooldown*/) {
 				attackTimer = 0;
 				e.hurt(1);
 

@@ -23,7 +23,7 @@ public class Hero extends Creature {
 		bounds.y = 44;
 		bounds.width = 19;
 		bounds.height = 19;
-		Entity.DEFAULT_HEALTH = 10;
+		//Entity.DEFAULT_HEALTH = 3;
 		// Animations
 		animDown = new Animation(500, Assets.player_down);
 		animUp = new Animation(500, Assets.player_up);

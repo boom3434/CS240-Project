@@ -39,12 +39,15 @@ public class enemy0 extends Creature {
 	}
 
 	public void tick() {
+		checkAttacks();
 		enemy0Attack.tick();
 		enemy0Still.tick();
+		
 		getInput();
 		move();
-		checkAttacks();
+		
 		step++;
+		
 	}
 
 	public void die() {
@@ -54,23 +57,22 @@ public class enemy0 extends Creature {
 	//TODO: Fix enemy attack rates
 
 	private void checkAttacks() {
-		attackTimer += System.currentTimeMillis() - lastAttackTimer;
-		lastAttackTimer = System.currentTimeMillis();
-		if (attackTimer < attackCooldown)
-			return;
-
 		Rectangle cb = getCollisionBounds(0, 0);
 		Rectangle arU = new Rectangle();
 		Rectangle arD = new Rectangle();
 		Rectangle arL = new Rectangle();
 		Rectangle arR = new Rectangle();
 		int arSize = 20;
+		//up
 		arU.width = arSize;
 		arU.height = arSize;
+		//down
 		arD.width = arSize;
 		arD.height = arSize;
+		//left
 		arL.width = arSize;
 		arL.height = arSize;
+		//right
 		arR.width = arSize;
 		arR.height = arSize;
 
@@ -90,24 +92,21 @@ public class enemy0 extends Creature {
 		arR.x = cb.x + cb.width;
 		arR.y = cb.y + cb.height / 2 - arSize / 2;
 
-		
-		
 		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
-			if (e.equals(this)) {
+			if (e.equals(this)) 
 				continue;
-			}
-			if ( ( e.getCollisionBounds(0, 0).intersects(arU)  || e.getCollisionBounds(0, 0).intersects(arD) 
-					|| e.getCollisionBounds(0, 0).intersects(arL)  || e.getCollisionBounds(0, 0).intersects(arR) ) && attackTimer>attackCooldown ) {
-				attackTimer = 0;
+			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
+					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))) {
+				System.out.println("collision!");
 				e.hurt(1);
-				
 				return;
 			} else {
 				return;
 			}
 		}
-		//attackTimer = 0;
+
 	}
+	
 
 	private void getInput() {
 		xMove = 0;
