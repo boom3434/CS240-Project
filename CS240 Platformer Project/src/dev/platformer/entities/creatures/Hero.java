@@ -10,25 +10,26 @@ import platformer.gfx.Animation;
 import platformer.gfx.Assets;
 
 public class Hero extends Creature {
-	
+
 	// Animations
-	private Animation animDown, animUp, animLeft, animRight;
+	private Animation animDown, animUp, animLeft, animRight, animAttack;
 	// Attack timer
 	private long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
 
 	public Hero(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
-	
+
 		bounds.x = 22;
 		bounds.y = 44;
 		bounds.width = 19;
 		bounds.height = 19;
-		//Entity.DEFAULT_HEALTH = 3;
+		// Entity.DEFAULT_HEALTH = 3;
 		// Animations
 		animDown = new Animation(500, Assets.player_down);
 		animUp = new Animation(500, Assets.player_up);
 		animLeft = new Animation(500, Assets.player_left);
 		animRight = new Animation(500, Assets.player_right);
+		animAttack = new Animation(250, Assets.player_attack);
 	}
 
 	@Override
@@ -124,6 +125,9 @@ public class Hero extends Creature {
 			return animRight.getCurrentFrame();
 		} else if (yMove < 0) {
 			return animUp.getCurrentFrame();
+		} else if (handler.getKeyManager().aUp || handler.getKeyManager().aDown || handler.getKeyManager().aRight
+				|| handler.getKeyManager().aLeft) {
+			return animAttack.getCurrentFrame();
 		} else {
 			return animDown.getCurrentFrame();
 		}

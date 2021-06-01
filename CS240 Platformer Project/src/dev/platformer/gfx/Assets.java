@@ -10,6 +10,7 @@ public class Assets {
 
 	public static BufferedImage dirt, grass, stone, tree, rock, winFlag;
 	public static BufferedImage[] player_down, player_up, player_left, player_right;
+	public static BufferedImage[] player_attack;
 	public static BufferedImage[] enemy0_down, enemy0_up, enemy0_left, enemy0_right;
 	public static BufferedImage[] enemy1;
 	public static BufferedImage[] btn_start;
@@ -25,6 +26,7 @@ public class Assets {
 		player_up = new BufferedImage[2];
 		player_left = new BufferedImage[2];
 		player_right = new BufferedImage[2];
+		player_attack = new BufferedImage[2];
 
 		player_down[0] = sheet.crop(width * 4, 0, width, height);
 		player_down[1] = sheet.crop(width * 4, height * 1, width, height);
@@ -34,6 +36,8 @@ public class Assets {
 		player_right[1] = sheet.crop(width * 6, height * 1, width, height);
 		player_left[0] = sheet.crop(width * 7, height, width, height);
 		player_left[1] = sheet.crop(width * 7, height * 1, width, height);
+		player_attack[0] = sheet.crop(width, height*2, width, height);
+		player_attack[1] = sheet.crop(width*2, height*2, width, height);
 
 		enemy0_down = new BufferedImage[2];
 		enemy0_up = new BufferedImage[2];

@@ -12,11 +12,12 @@ import platformer.entities.Entity;
 import platformer.gfx.Animation;
 import platformer.gfx.Assets;
 
+
 public class enemy1 extends Creature {
 
-	private int step, moveTimer, moveSelect;
+	private int step, moveTimer, moveSelect, attackCounter;
 	// Attack Timer
-	private long lastAttackTimer, attackCooldown = 1000, attackTimer = attackCooldown;
+	
 	private Animation enemy1;
 
 	Rectangle cb = getCollisionBounds(0, 0);
@@ -38,6 +39,7 @@ public class enemy1 extends Creature {
 		step = 0;
 		moveTimer = 0;
 		moveSelect = 0;
+		
 		// Animations
 		enemy1 = new Animation(500, Assets.enemy1);
 	}
@@ -49,67 +51,62 @@ public class enemy1 extends Creature {
 		checkAttacks();
 		step++;
 		moveTimer++;
+		attackCounter++;
 	}
 
 	public void die() {
 
 	}
 
-	// TODO: Fix enemy attack rates
-
+	
 	private void checkAttacks() {
-		attackTimer += System.currentTimeMillis() - lastAttackTimer;
-		lastAttackTimer = System.currentTimeMillis();
-		if (attackTimer < attackCooldown)
-			return;
+	
+			
 
-		Rectangle cb = getCollisionBounds(0, 0);
-		Rectangle arU = new Rectangle();
-		Rectangle arD = new Rectangle();
-		Rectangle arL = new Rectangle();
-		Rectangle arR = new Rectangle();
-		int arSize = 20;
-		arU.width = arSize;
-		arU.height = arSize;
-		arD.width = arSize;
-		arD.height = arSize;
-		arL.width = arSize;
-		arL.height = arSize;
-		arR.width = arSize;
-		arR.height = arSize;
+			Rectangle cb = getCollisionBounds(0, 0);
+			Rectangle arU = new Rectangle();
+			Rectangle arD = new Rectangle();
+			Rectangle arL = new Rectangle();
+			Rectangle arR = new Rectangle();
+			int arSize = 20;
+			arU.width = arSize;
+			arU.height = arSize;
+			arD.width = arSize;
+			arD.height = arSize;
+			arL.width = arSize;
+			arL.height = arSize;
+			arR.width = arSize;
+			arR.height = arSize;
 
-		// up
-		arU.x = cb.x + cb.width / 2 - arSize / 2;
-		arU.y = cb.y - arSize;
+			// up
+			arU.x = cb.x + cb.width / 2 - arSize / 2;
+			arU.y = cb.y - arSize;
 
-		// down
-		arD.x = cb.x + cb.width / 2 - arSize / 2;
-		arD.y = cb.y + arSize;
+			// down
+			arD.x = cb.x + cb.width / 2 - arSize / 2;
+			arD.y = cb.y + arSize;
 
-		// left
-		arL.x = cb.x - arSize;
-		arL.y = cb.y + cb.height / 2 - arSize / 2;
+			// left
+			arL.x = cb.x - arSize;
+			arL.y = cb.y + cb.height / 2 - arSize / 2;
 
-		// right
-		arR.x = cb.x + cb.width;
-		arR.y = cb.y + cb.height / 2 - arSize / 2;
+			// right
+			arR.x = cb.x + cb.width;
+			arR.y = cb.y + cb.height / 2 - arSize / 2;
 
-		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
-			if (e.equals(this)) {
-				continue;
+			for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+				if (e.equals(this)) {
+					continue;
+				}
+				if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
+						|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR)) && attackCounter>=500) {
+					System.out.println("Damage dealt");
+					e.hurt(1);
+					attackCounter=0;
+					return;
+				}
 			}
-			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
-					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))
-					/*&& attackTimer > attackCooldown*/) {
-				attackTimer = 0;
-				e.hurt(1);
 
-				return;
-			} else {
-				return;
-			}
-		}
-		// attackTimer = 0;
 	}
 
 	private void getInput() {
@@ -207,7 +204,7 @@ public class enemy1 extends Creature {
 
 			}
 		} else {
-			// TODO: make changes to this else statement to get different movement patterns
+	
 			if (step < movementScale) {
 				yMove = speed;
 			} else if (step >= movementScale && step < movementScale * 2) {

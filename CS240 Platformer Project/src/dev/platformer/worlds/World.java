@@ -22,6 +22,9 @@ public class World {
 	// Entities
 	private EntityManager entityManager;
 
+	//Health test code
+	int healthRemind = 0;
+	
 	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Hero(handler, 10, 10));
@@ -38,11 +41,21 @@ public class World {
 		entityManager.addEntity(new enemy1(handler, 700, 700, 50, 50));
 		entityManager.addEntity(new enemy1(handler,500,500,50,50));
 		entityManager.addEntity(new enemy1(handler,650,500,50,50));
+		entityManager.addEntity(new enemy0(handler, 1000,300,50,50));
+		entityManager.addEntity(new enemy0(handler, 1000,500,50,50));
+		entityManager.addEntity(new enemy0(handler, 1000,700,50,50));
 		entityManager.addEntity(new winFlag(handler,1000,100));
+		
+
 	}
 
 	public void tick() {
 		entityManager.tick();
+		healthRemind++;
+		if(healthRemind>=100) {
+			System.out.println("Your health is: "+entityManager.getHeroHealth());
+			healthRemind = 0;
+		}
 	}
 
 	public void render(Graphics g) {

@@ -1,4 +1,5 @@
 package platformer.entities.creatures;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -10,7 +11,7 @@ import platformer.gfx.Assets;
 
 public class enemy0 extends Creature {
 
-	private int step;
+	private int step, attackCounter;
 	// Attack Timer
 	private long lastAttackTimer, attackCooldown = 1000, attackTimer = attackCooldown;
 	private Animation enemy0Attack, enemy0Still;
@@ -24,14 +25,15 @@ public class enemy0 extends Creature {
 	// Collision Rectangles
 
 	public enemy0(Handler handler, float x, float y, int width, int height) {
-		
+
 		super(handler, x, y, width, height);
 		bounds.x = 0;
 		bounds.y = 0;
 		bounds.width = width;
 		bounds.height = height;
-	
+
 		step = 0;
+		attackCounter = 0;
 
 		// Animations
 		enemy0Attack = new Animation(500, Assets.enemy0_down);
@@ -42,37 +44,34 @@ public class enemy0 extends Creature {
 		checkAttacks();
 		enemy0Attack.tick();
 		enemy0Still.tick();
-		
+
 		getInput();
 		move();
-		
+
 		step++;
-		
+		attackCounter++;
+
 	}
 
 	public void die() {
 
 	}
-	
-	//TODO: Fix enemy attack rates
 
 	private void checkAttacks() {
+	
+
 		Rectangle cb = getCollisionBounds(0, 0);
 		Rectangle arU = new Rectangle();
 		Rectangle arD = new Rectangle();
 		Rectangle arL = new Rectangle();
 		Rectangle arR = new Rectangle();
 		int arSize = 20;
-		//up
 		arU.width = arSize;
 		arU.height = arSize;
-		//down
 		arD.width = arSize;
 		arD.height = arSize;
-		//left
 		arL.width = arSize;
 		arL.height = arSize;
-		//right
 		arR.width = arSize;
 		arR.height = arSize;
 
@@ -93,19 +92,21 @@ public class enemy0 extends Creature {
 		arR.y = cb.y + cb.height / 2 - arSize / 2;
 
 		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
-			if (e.equals(this)) 
+			if (e.equals(this)) {
 				continue;
+			}
 			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
-					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))) {
-				System.out.println("collision!");
+					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR)) && attackCounter>=500) {
+				System.out.println("Damage dealt");
 				e.hurt(1);
-				return;
-			} else {
+				attackCounter=0;
 				return;
 			}
 		}
 
 	}
+
+
 	
 
 	private void getInput() {
