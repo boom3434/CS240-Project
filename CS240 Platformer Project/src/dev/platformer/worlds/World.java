@@ -22,38 +22,38 @@ public class World {
 	// Entities
 	private EntityManager entityManager;
 
-	//Health test code
+	// Health test code
 	int healthRemind = 0;
-	
+
 	public World(Handler handler, String path) {
 		this.handler = handler;
-		entityManager = new EntityManager(handler, new Hero(handler, 10, 10));
+		entityManager = new EntityManager(handler, new Hero(handler, 100, 100));
 		// Temporary entity code!
 		entityManager.addEntity(new Tree(handler, 100, 250));
 		entityManager.addEntity(new Rock(handler, 100, 450));
+		entityManager.addEntity(new Rock(handler, 100, 700));
 
 		loadWorld(path);
 
-		entityManager.getPlayer().setX(spawnX);
-		entityManager.getPlayer().setY(spawnY);
-		entityManager.addEntity(new enemy0(handler, 400, 300,50,50));
+		entityManager.getPlayer().setX(150);
+		entityManager.getPlayer().setY(150);
+		entityManager.addEntity(new enemy0(handler, 400, 300, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 500, 350, 50, 50));
 		entityManager.addEntity(new enemy1(handler, 700, 700, 50, 50));
-		entityManager.addEntity(new enemy1(handler,500,500,50,50));
-		entityManager.addEntity(new enemy1(handler,650,500,50,50));
-		entityManager.addEntity(new enemy0(handler, 1000,300,50,50));
-		entityManager.addEntity(new enemy0(handler, 1000,500,50,50));
-		entityManager.addEntity(new enemy0(handler, 1000,700,50,50));
-		entityManager.addEntity(new winFlag(handler,1000,100));
-		
+		entityManager.addEntity(new enemy1(handler, 500, 500, 50, 50));
+		entityManager.addEntity(new enemy1(handler, 650, 500, 50, 50));
+		entityManager.addEntity(new enemy0(handler, 1000, 300, 50, 50));
+		entityManager.addEntity(new enemy0(handler, 1000, 500, 50, 50));
+		entityManager.addEntity(new enemy0(handler, 1000, 700, 50, 50));
+		entityManager.addEntity(new winFlag(handler, 1000, 100));
 
 	}
 
 	public void tick() {
 		entityManager.tick();
 		healthRemind++;
-		if(healthRemind>=100) {
-			System.out.println("Your health is: "+entityManager.getHeroHealth());
+		if (healthRemind >= 100) {
+			System.out.println("Your health is: " + entityManager.getHeroHealth());
 			healthRemind = 0;
 		}
 	}
