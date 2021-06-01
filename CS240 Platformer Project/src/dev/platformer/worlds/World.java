@@ -39,6 +39,7 @@ public class World {
 		entityManager.getPlayer().setY(150);
 		entityManager.addEntity(new enemy0(handler, 400, 300, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 500, 350, 50, 50));
+		entityManager.addEntity(new enemy1(handler, 600, 200, 50, 50));
 		entityManager.addEntity(new enemy1(handler, 700, 700, 50, 50));
 		entityManager.addEntity(new enemy1(handler, 500, 500, 50, 50));
 		entityManager.addEntity(new enemy1(handler, 650, 500, 50, 50));
@@ -46,6 +47,7 @@ public class World {
 		entityManager.addEntity(new enemy0(handler, 1000, 500, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 1000, 700, 50, 50));
 		entityManager.addEntity(new winFlag(handler, 1000, 100));
+		entityManager.addEntity(new enemy1(handler, 1100, 100, 50, 50));
 
 	}
 
