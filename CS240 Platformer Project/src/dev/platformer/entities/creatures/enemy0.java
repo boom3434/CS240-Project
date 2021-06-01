@@ -97,7 +97,6 @@ public class enemy0 extends Creature {
 			}
 			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
 					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR)) && attackCounter>=500) {
-				System.out.println("Damage dealt");
 				e.hurt(1);
 				attackCounter=0;
 				return;

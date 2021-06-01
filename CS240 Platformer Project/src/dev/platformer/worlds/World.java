@@ -32,22 +32,28 @@ public class World {
 		entityManager.addEntity(new Tree(handler, 100, 250));
 		entityManager.addEntity(new Rock(handler, 100, 450));
 		entityManager.addEntity(new Rock(handler, 100, 700));
+		entityManager.addEntity(new Tree(handler, 400, 600));
 
 		loadWorld(path);
 
 		entityManager.getPlayer().setX(150);
 		entityManager.getPlayer().setY(150);
-		entityManager.addEntity(new enemy0(handler, 400, 300, 50, 50));
-		entityManager.addEntity(new enemy0(handler, 500, 350, 50, 50));
-		entityManager.addEntity(new enemy1(handler, 600, 200, 50, 50));
+		// First enemies you see to upper right
+		entityManager.addEntity(new enemy0(handler, 350, 150, 50, 50));
+		entityManager.addEntity(new enemy0(handler, 550, 250, 50, 50));
+		// Enemies in 'hallway' that travels south
+		entityManager.addEntity(new enemy1(handler, 700, 200, 50, 50));
 		entityManager.addEntity(new enemy1(handler, 700, 700, 50, 50));
-		entityManager.addEntity(new enemy1(handler, 500, 500, 50, 50));
-		entityManager.addEntity(new enemy1(handler, 650, 500, 50, 50));
+		entityManager.addEntity(new enemy1(handler, 600, 500, 50, 50));
+		entityManager.addEntity(new enemy0(handler, 850, 200, 50, 50));
+		// Enemies in tree & rock area to lower left
+		entityManager.addEntity(new enemy1(handler, 150, 800, 50, 50));
+		entityManager.addEntity(new enemy1(handler, 300, 750, 50, 50));
+		// Enemies in 'hallway' that travels north to winFlag
 		entityManager.addEntity(new enemy0(handler, 1000, 300, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 1000, 500, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 1000, 700, 50, 50));
 		entityManager.addEntity(new winFlag(handler, 1000, 100));
-		entityManager.addEntity(new enemy1(handler, 1100, 100, 50, 50));
 
 	}
 

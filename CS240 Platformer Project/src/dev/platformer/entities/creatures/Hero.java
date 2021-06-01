@@ -8,9 +8,11 @@ import platformer.Handler;
 import platformer.entities.Entity;
 import platformer.gfx.Animation;
 import platformer.gfx.Assets;
+import platformer.states.State;
+import platformer.states.*;
 
 public class Hero extends Creature {
-
+	public State menuState;
 	// Animations
 	private Animation animDown, animUp, animLeft, animRight, animAttack;
 	// Attack timer
@@ -30,10 +32,12 @@ public class Hero extends Creature {
 		animLeft = new Animation(500, Assets.player_left);
 		animRight = new Animation(500, Assets.player_right);
 		animAttack = new Animation(250, Assets.player_attack);
+		menuState = new MenuState(handler);
 	}
 
 	@Override
 	public void tick() {
+		
 		// Animations
 		animDown.tick();
 		animUp.tick();
@@ -91,6 +95,7 @@ public class Hero extends Creature {
 	@Override
 	public void die() {
 		System.out.println("You lose");
+		
 	}
 
 	private void getInput() {

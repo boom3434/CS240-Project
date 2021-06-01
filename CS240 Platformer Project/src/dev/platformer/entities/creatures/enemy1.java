@@ -3,8 +3,6 @@ package platformer.entities.creatures;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Random;
 
 import platformer.Handler;
@@ -12,12 +10,12 @@ import platformer.entities.Entity;
 import platformer.gfx.Animation;
 import platformer.gfx.Assets;
 
-
 public class enemy1 extends Creature {
 
 	private int step, moveTimer, moveSelect, attackCounter;
-	// Attack Timer
+	Queue moveQ = new Queue(5);
 	
+
 	private Animation enemy1;
 
 	Rectangle cb = getCollisionBounds(0, 0);
@@ -35,16 +33,32 @@ public class enemy1 extends Creature {
 		bounds.y = 0;
 		bounds.width = width;
 		bounds.height = height;
-
+		
+		Random rand = new Random();
+		int upperbound = 5;
+		int insert = rand.nextInt(upperbound);
+		moveQ.enqueue(insert);
+		insert = rand.nextInt(upperbound);
+		moveQ.enqueue(insert);
+		insert = rand.nextInt(upperbound);
+		moveQ.enqueue(insert);
+		insert = rand.nextInt(upperbound);
+		moveQ.enqueue(insert);
+		insert = rand.nextInt(upperbound);
+		moveQ.enqueue(insert);
+		
+		
 		step = 0;
 		moveTimer = 0;
 		moveSelect = 0;
-		
+
 		// Animations
 		enemy1 = new Animation(500, Assets.enemy1);
 	}
 
 	public void tick() {
+		
+		
 		enemy1.tick();
 		getInput();
 		move();
@@ -58,54 +72,51 @@ public class enemy1 extends Creature {
 
 	}
 
-	
 	private void checkAttacks() {
-	
-			
+		Rectangle cb = getCollisionBounds(0, 0);
+		Rectangle arU = new Rectangle();
+		Rectangle arD = new Rectangle();
+		Rectangle arL = new Rectangle();
+		Rectangle arR = new Rectangle();
+		int arSize = 20;
+		arU.width = arSize;
+		arU.height = arSize;
+		arD.width = arSize;
+		arD.height = arSize;
+		arL.width = arSize;
+		arL.height = arSize;
+		arR.width = arSize;
+		arR.height = arSize;
 
-			Rectangle cb = getCollisionBounds(0, 0);
-			Rectangle arU = new Rectangle();
-			Rectangle arD = new Rectangle();
-			Rectangle arL = new Rectangle();
-			Rectangle arR = new Rectangle();
-			int arSize = 20;
-			arU.width = arSize;
-			arU.height = arSize;
-			arD.width = arSize;
-			arD.height = arSize;
-			arL.width = arSize;
-			arL.height = arSize;
-			arR.width = arSize;
-			arR.height = arSize;
+		// up
+		arU.x = cb.x + cb.width / 2 - arSize / 2;
+		arU.y = cb.y - arSize;
 
-			// up
-			arU.x = cb.x + cb.width / 2 - arSize / 2;
-			arU.y = cb.y - arSize;
+		// down
+		arD.x = cb.x + cb.width / 2 - arSize / 2;
+		arD.y = cb.y + arSize;
 
-			// down
-			arD.x = cb.x + cb.width / 2 - arSize / 2;
-			arD.y = cb.y + arSize;
+		// left
+		arL.x = cb.x - arSize;
+		arL.y = cb.y + cb.height / 2 - arSize / 2;
 
-			// left
-			arL.x = cb.x - arSize;
-			arL.y = cb.y + cb.height / 2 - arSize / 2;
+		// right
+		arR.x = cb.x + cb.width;
+		arR.y = cb.y + cb.height / 2 - arSize / 2;
 
-			// right
-			arR.x = cb.x + cb.width;
-			arR.y = cb.y + cb.height / 2 - arSize / 2;
-
-			for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
-				if (e.equals(this)) {
-					continue;
-				}
-				if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
-						|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR)) && attackCounter>=500) {
-					System.out.println("Damage dealt");
-					e.hurt(1);
-					attackCounter=0;
-					return;
-				}
+		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+			if (e.equals(this)) {
+				continue;
 			}
+			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
+					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))
+					&& attackCounter >= 500) {
+
+				e.hurt(1);
+				attackCounter = 0;
+				return;
+			}
+		}
 
 	}
 
@@ -113,7 +124,23 @@ public class enemy1 extends Creature {
 		xMove = 0;
 		yMove = 0;
 		if (moveTimer >= 10) {
-			moveSelect = getMovePattern();
+			
+			if(moveQ.size()<=0) {
+				Random rand = new Random();
+				int upperbound = 5;
+				int insert = rand.nextInt(upperbound);
+				moveQ.enqueue(insert);
+				insert = rand.nextInt(upperbound);
+				moveQ.enqueue(insert);
+				insert = rand.nextInt(upperbound);
+				moveQ.enqueue(insert);
+				insert = rand.nextInt(upperbound);
+				moveQ.enqueue(insert);
+				insert = rand.nextInt(upperbound);
+				moveQ.enqueue(insert);
+			}
+			moveSelect = moveQ.peek();
+			moveQ.dequeue();
 			moveTimer = 0;
 		}
 		int movementScale = 30;
@@ -204,7 +231,7 @@ public class enemy1 extends Creature {
 
 			}
 		} else {
-	
+
 			if (step < movementScale) {
 				yMove = speed;
 			} else if (step >= movementScale && step < movementScale * 2) {
@@ -228,19 +255,6 @@ public class enemy1 extends Creature {
 			}
 		}
 
-	}
-
-	public int getMovePattern() {
-		Queue<Integer> q = new LinkedList<>();
-
-		for (int i = 0; i < 4; i++) {
-			Random rand = new Random();
-			int upperbound = 5;
-			int insert = rand.nextInt(upperbound);
-			q.add(insert);
-		}
-
-		return q.remove();
 	}
 
 	public void render(Graphics g) {
