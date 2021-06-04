@@ -32,9 +32,10 @@ public class World {
 	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Hero(handler, 100, 100));
-		
+
 		entityManager.addEntity(new Tree(handler, 100, 250));
 		entityManager.addEntity(new Rock(handler, 100, 450));
+		entityManager.addEntity(new Rock(handler, 425, 440));
 		entityManager.addEntity(new Rock(handler, 100, 700));
 		entityManager.addEntity(new Tree(handler, 400, 600));
 
@@ -57,6 +58,7 @@ public class World {
 		entityManager.addEntity(new enemy0(handler, 1000, 300, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 1000, 500, 50, 50));
 		entityManager.addEntity(new enemy0(handler, 1000, 700, 50, 50));
+		entityManager.addEntity(new enemy1(handler, 1000, 600, 50, 50));
 		entityManager.addEntity(new winFlag(handler, 1000, 100));
 
 	}

@@ -83,7 +83,7 @@ public class enemy1 extends Creature {
 		Rectangle arD = new Rectangle();
 		Rectangle arL = new Rectangle();
 		Rectangle arR = new Rectangle();
-		int arSize = 20;
+		int arSize = 35;
 		arU.width = arSize;
 		arU.height = arSize;
 		arD.width = arSize;
@@ -115,7 +115,7 @@ public class enemy1 extends Creature {
 			}
 			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
 					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))
-					&& attackCounter >= 500) {
+					&& attackCounter >= 350) {
 
 				e.hurt(1);
 				attackCounter = 0;

@@ -46,7 +46,7 @@ public class winFlag extends StaticEntity {
 		Rectangle arD = new Rectangle();
 		Rectangle arL = new Rectangle();
 		Rectangle arR = new Rectangle();
-		int arSize = 20;
+		int arSize = 30;
 		arU.width = arSize;
 		arU.height = arSize;
 		arD.width = arSize;
