@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Template to define all entities in the game, static or not
+
 package platformer.entities;
 
 import java.awt.Graphics;

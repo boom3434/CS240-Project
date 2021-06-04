@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Defines special attributes of the static win flag entity
+
 package platformer.entities.statics;
 
 import java.awt.Graphics;

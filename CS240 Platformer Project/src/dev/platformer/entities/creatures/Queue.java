@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//our own implementation of a queue for the game
+
 package platformer.entities.creatures;
 
 class Queue {
@@ -17,8 +22,7 @@ class Queue {
 
 	public void dequeue() {
 		if (isEmpty()) {
-			System.out.println("Underflow");
-			System.exit(1);
+			System.out.println("The queue is already empty!!");
 		}
 
 		front = (front + 1) % capacity;
@@ -28,8 +32,6 @@ class Queue {
 	public void enqueue(int item) {
 		if (isFull()) {
 			System.out.println("Too many elements for size!");
-			System.out.println("Terminating...");
-			System.exit(1);
 		}
 
 		rear = (rear + 1) % capacity;
@@ -40,8 +42,6 @@ class Queue {
 	public int peek() {
 		if (isEmpty()) {
 			System.out.println("Queue is empty!");
-			System.out.println("Terminating...");
-			System.exit(1);
 		}
 		return arr[front];
 	}

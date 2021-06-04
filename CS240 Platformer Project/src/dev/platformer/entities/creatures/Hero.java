@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Defines special qualities of the hero of the game
+
 package platformer.entities.creatures;
 
 import java.awt.Graphics;
@@ -25,7 +30,6 @@ public class Hero extends Creature {
 		bounds.y = 44;
 		bounds.width = 19;
 		bounds.height = 19;
-		// Entity.DEFAULT_HEALTH = 3;
 		// Animations
 		animDown = new Animation(500, Assets.player_down);
 		animUp = new Animation(500, Assets.player_up);
@@ -117,10 +121,6 @@ public class Hero extends Creature {
 		g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 
-//		g.setColor(Color.red);
-//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-//				bounds.width, bounds.height);
 	}
 
 	private BufferedImage getCurrentAnimationFrame() {

@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Defines any special attributes of enemy1 (the black guy)
+
 package platformer.entities.creatures;
 
 import java.awt.Graphics;
@@ -17,14 +22,14 @@ public class enemy1 extends Creature {
 	
 
 	private Animation enemy1;
-
+	// Collision Rectangles
 	Rectangle cb = getCollisionBounds(0, 0);
 	Rectangle arU = new Rectangle();
 	Rectangle arD = new Rectangle();
 	Rectangle arL = new Rectangle();
 	Rectangle arR = new Rectangle();
 
-	// Collision Rectangles
+	
 
 	public enemy1(Handler handler, float x, float y, int width, int height) {
 
@@ -52,7 +57,7 @@ public class enemy1 extends Creature {
 		moveTimer = 0;
 		moveSelect = 0;
 
-		// Animations
+		// Animation
 		enemy1 = new Animation(500, Assets.enemy1);
 	}
 

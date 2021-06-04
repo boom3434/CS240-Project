@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//defines the start button
+
 package platformer.ui;
 
 import java.awt.Graphics;

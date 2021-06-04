@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Handles everything that can be interacted with inside the game
+
 package platformer.worlds;
 
 import java.awt.Graphics;
@@ -22,13 +27,12 @@ public class World {
 	// Entities
 	private EntityManager entityManager;
 
-	// Health test code
 	int healthRemind = 0;
 
 	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Hero(handler, 100, 100));
-		// Temporary entity code!
+		
 		entityManager.addEntity(new Tree(handler, 100, 250));
 		entityManager.addEntity(new Rock(handler, 100, 450));
 		entityManager.addEntity(new Rock(handler, 100, 700));

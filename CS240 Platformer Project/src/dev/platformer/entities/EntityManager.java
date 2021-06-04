@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Class that 'manages' all entities (handles placement, removal, adding, and render order of entities)
+
 package platformer.entities;
 
 import java.awt.Graphics;

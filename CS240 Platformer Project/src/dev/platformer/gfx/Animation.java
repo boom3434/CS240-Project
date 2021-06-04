@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Allows non-static entities to change (have animations)
+
 package platformer.gfx;
 
 import java.awt.image.BufferedImage;

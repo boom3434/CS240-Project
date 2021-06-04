@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Takes portions of sheet.png and turns them into usable graphics for the game
+
 package platformer.gfx;
 
 import java.awt.image.BufferedImage;

@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Basically just a fancy getter and setter. Simplifies implementation of important game components within the other classes
+
 package platformer;
 
 import platformer.gfx.GameCamera;
@@ -6,31 +11,31 @@ import platformer.input.MouseManager;
 import platformer.worlds.World;
 
 public class Handler {
-	
+
 	private Game game;
 	private World world;
-	
-	public Handler(Game game){
+
+	public Handler(Game game) {
 		this.game = game;
 	}
-	
-	public GameCamera getGameCamera(){
+
+	public GameCamera getGameCamera() {
 		return game.getGameCamera();
 	}
-	
-	public KeyManager getKeyManager(){
+
+	public KeyManager getKeyManager() {
 		return game.getKeyManager();
 	}
-	
-	public MouseManager getMouseManager(){
+
+	public MouseManager getMouseManager() {
 		return game.getMouseManager();
 	}
-	
-	public int getWidth(){
+
+	public int getWidth() {
 		return game.getWidth();
 	}
-	
-	public int getHeight(){
+
+	public int getHeight() {
 		return game.getHeight();
 	}
 

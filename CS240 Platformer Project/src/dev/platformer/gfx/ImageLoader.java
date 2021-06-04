@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//loads sheet.png into the application
+
 package platformer.gfx;
 
 import java.awt.image.BufferedImage;

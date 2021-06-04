@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Defines any special attributes of enemy0 (the red guy)
+
 package platformer.entities.creatures;
 
 import java.awt.Graphics;
@@ -12,8 +17,6 @@ import platformer.gfx.Assets;
 public class enemy0 extends Creature {
 
 	private int step, attackCounter;
-	// Attack Timer
-	private long lastAttackTimer, attackCooldown = 1000, attackTimer = attackCooldown;
 	private Animation enemy0Attack, enemy0Still;
 
 	Rectangle cb = getCollisionBounds(0, 0);

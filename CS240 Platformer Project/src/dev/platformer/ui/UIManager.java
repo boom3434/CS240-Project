@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Manages the user interface
+
 package platformer.ui;
 
 import java.awt.Graphics;

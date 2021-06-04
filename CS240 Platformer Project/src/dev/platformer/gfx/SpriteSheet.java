@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Assists with cropping graphical components from sheet.png
+
 package platformer.gfx;
 
 import java.awt.image.BufferedImage;

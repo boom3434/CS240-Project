@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Template for all creatures within the game 
+
 package platformer.entities.creatures;
 
 import platformer.Handler;

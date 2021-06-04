@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//handles keyboard input from the user
+
 package platformer.input;
 
 import java.awt.event.KeyEvent;

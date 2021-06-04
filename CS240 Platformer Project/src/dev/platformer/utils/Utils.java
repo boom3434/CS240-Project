@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//utility class to assist with file paths and parsing integers in an efficient manner
+
 package platformer.utils;
 
 import java.io.BufferedReader;

@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Template for menu and game state
+
 package platformer.states;
 
 import java.awt.Graphics;

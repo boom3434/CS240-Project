@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Handles mouse input from the user (really only used in the menu state)
+
 package platformer.input;
 
 import java.awt.event.MouseEvent;

@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Template for static entities
+
 package platformer.entities.statics;
 
 import platformer.Handler;

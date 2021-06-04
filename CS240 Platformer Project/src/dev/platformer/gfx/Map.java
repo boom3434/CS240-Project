@@ -1,8 +1,9 @@
 package platformer.gfx;
 
-//Finn Parker, Bryce Johnston
+//Finn Parker, Bryce Johnston, Jonathan Steger
 //CS240 - Platformer
 //5.17.21
+//Instructor: Ryan Parsons
 //Our own implementation of  hashmap
 
 import java.util.ArrayList;

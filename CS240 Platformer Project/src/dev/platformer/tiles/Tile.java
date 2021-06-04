@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//Defines the tiles which make up the game map
+
 package platformer.tiles;
 
 import java.awt.Graphics;

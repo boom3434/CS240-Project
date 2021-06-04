@@ -1,3 +1,8 @@
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//defines special attributes of the static rock entity
+
 package platformer.entities.statics;
 
 import java.awt.Graphics;

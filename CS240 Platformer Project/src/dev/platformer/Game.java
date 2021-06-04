@@ -1,6 +1,8 @@
-//Finn Parker, Bryce Johnston, Jon Steger
-//CS240 - Platformer Project
-
+//Finn Parker - Jonathan Steger - Bryce Johnston
+//CS240 Project
+//Instructor: Ryan Parsons
+//starts the game, ensures the game is running well, starts and stops the game, brings manager classes together
+//basically the game engine 
 package platformer;
 
 import java.awt.Graphics;
