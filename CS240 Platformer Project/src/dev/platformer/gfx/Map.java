@@ -20,14 +20,6 @@ public class Map<K, V> {
 		}
 	}
 
-	public int getSize() {
-		return size;
-	}
-
-	public boolean isEmpty() {
-		return size == 0;
-	}
-
 	private int getBucketIndex(K key) {
 		int hashCod = key.hashCode();
 		return Math.abs(hashCod % numBuckets);

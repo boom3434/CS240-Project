@@ -12,6 +12,7 @@ import platformer.Handler;
 import platformer.gfx.Assets;
 import platformer.tiles.Tile;
 import platformer.entities.*;
+import platformer.Game;
 
 public class winFlag extends StaticEntity {
 
@@ -79,6 +80,7 @@ public class winFlag extends StaticEntity {
 			if ((e.getCollisionBounds(0, 0).intersects(arU) || e.getCollisionBounds(0, 0).intersects(arD)
 					|| e.getCollisionBounds(0, 0).intersects(arL) || e.getCollisionBounds(0, 0).intersects(arR))) {
 				System.out.println("You win!");
+				
 
 				return;
 			} else {
